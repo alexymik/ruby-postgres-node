@@ -1,4 +1,4 @@
-FROM ruby
+FROM ruby:latest
 RUN apt-get update \
   && apt-get install -y postgresql postgresql-contrib \
   && apt-get install -y nodejs sudo \
