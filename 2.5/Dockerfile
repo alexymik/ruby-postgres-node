@@ -10,5 +10,8 @@ RUN apt-get update \
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash
 
-# This Dockerfile doesn't need to have an entrypoint and a command
-# as Bitbucket Pipelines will overwrite it with a bash script.
+RUN apt-get install -y nodejs
+
+RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - \ 
+     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list \
+     apt-get update && apt-get install yarn \
